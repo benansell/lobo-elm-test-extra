@@ -1,0 +1,25 @@
+{
+  "name": "lobo-elm-test-extra",
+  "version": "0.0.2",
+  "description": "elm-test extensions for lobo with focus & skip",
+  "keywords": [
+    "elm",
+    "lobo",
+    "test"
+  ],
+  "author": "bja <code@benansell.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benansell/lobo-cli.git"
+  },
+  "license": "BSD-3-Clause",
+  "dependencies": {},
+  "devDependencies": {
+    "rimraf": "^2.5.4"
+  },
+  "scripts": {
+    "clean": "rimraf node_modules elm-stuff tests/elm-stuff",
+    "build-ci": "elm-make --yes",
+    "build-doc": "elm-make --docs=documentation.json"
+  }
+}
