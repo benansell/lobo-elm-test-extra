@@ -1,6 +1,6 @@
 {
   "name": "lobo-elm-test-extra",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "elm-test extensions for lobo with focus & skip",
   "keywords": [
     "elm",
@@ -10,7 +10,7 @@
   "author": "bja <code@benansell.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/benansell/lobo-cli.git"
+    "url": "https://github.com/benansell/lobo-elm-test-extra.git"
   },
   "license": "BSD-3-Clause",
   "dependencies": {},
