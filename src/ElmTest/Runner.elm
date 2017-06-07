@@ -1,4 +1,4 @@
-module ElmTest.Runner exposing (Test(Test, Labeled, Batch, Skipped, Focus))
+module ElmTest.Runner exposing (Test(Batch, Labeled, Only, Skipped, Test, Todo))
 
 {-| Declarations required by lobo. Generally only of interest when
 extending lobo.
@@ -13,8 +13,9 @@ import Test as ElmTest
 {-| Hierarchical representation of Tests
 -}
 type Test
-    = Test ElmTest.Test
+    = Batch (List Test)
     | Labeled String Test
-    | Batch (List Test)
+    | Only Test
     | Skipped String Test
-    | Focus Test
+    | Test ElmTest.Test
+    | Todo String

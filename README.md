@@ -9,14 +9,6 @@ Additions to [elm-test](http://package.elm-lang.org/packages/elm-community/elm-t
                 \() ->
                     Expect.fail "Never runs"
 
-
-    focusTest : Test
-    focusTest =
-        focus <|
-            test "Example passing test" <|
-                \() ->
-                    Expect.pass
-
 ## Migration from elm-test
 To use this package you will need to use lobo with the "elm-test-extra" framework, and replace:
 ```elm
@@ -30,4 +22,5 @@ Further information on using lobo can be found [here](https://github.com/benanse
 
 The following elm-test functions are not available in elm-test-extra:
 * concat -> instead use `describe`
-* filter -> instead use `skip`
+
+Note: the use of skip in lobo requires a reason to be specified

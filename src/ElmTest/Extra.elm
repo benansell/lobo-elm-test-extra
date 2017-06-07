@@ -2,15 +2,16 @@ module ElmTest.Extra
     exposing
         ( Test
         , describe
-        , focus
         , fuzz
         , fuzz2
         , fuzz3
         , fuzz4
         , fuzz5
         , fuzzWith
+        , only
         , skip
         , test
+        , todo
         )
 
 {-| Additions to [elm-test](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
@@ -24,13 +25,6 @@ for use with the [lobo](https://www.npmjs.com/package/lobo) test runner.
                     Expect.fail "Never runs"
 
 
-    focusTest : Test
-    focusTest =
-        focus <|
-            test "Example passing test" <|
-                \() ->
-                    Expect.pass
-
 ## Migration from elm-test
 To use this package you will need to use lobo with the "elm-test-extra"
 framework, and replace:
@@ -41,22 +35,24 @@ with
 
     import ElmTest.Extra
 
+It is recommended that you give each describe / test a meaningful description. However, lobo
+does not enforce any uniqueness constraints on these descriptions.
+
 Further information on using lobo can be found [here](https://www.npmjs.com/package/lobo)
 
 The following elm-test functions are not available in elm-test-extra:
 * concat -> instead use `describe`
-* filter -> instead use `skip`
 
 ## Extra
 
-@docs focus, skip
+@docs skip
 
 ## elm-test
 
 lobo compatible declarations of the elm-test Test API. In the first instance
 please see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
 
-@docs Test, test
+@docs Test, only, test, todo
 
 ### Organizing Tests
 
@@ -70,42 +66,26 @@ please see the original [elm-test documentation](http://package.elm-lang.org/pac
 
 import Expect exposing (Expectation)
 import Fuzz as Fuzz exposing (Fuzzer)
-import ElmTest.Runner as Runner exposing (Test(Test, Labeled, Batch, Skipped, Focus))
-import Test as ElmTest
-    exposing
-        ( FuzzOptions
-        , concat
-        , fuzz
-        , fuzz2
-        , fuzz3
-        , fuzz4
-        , fuzz5
-        , fuzzWith
-        , test
-        )
+import ElmTest.Runner as Runner exposing (Test(Test, Labeled, Batch, Skipped, Only, Todo))
+import Test as ElmTest exposing (FuzzOptions, fuzz, fuzz2, fuzz3, fuzz4, fuzz5, fuzzWith, test)
 
 
-{-| Restrict the running of tests to only those that have `focus`:
-unfocused tests.
+{-| Restrict the running of tests to `only` those that have only:
 
-    focusTest : Test
-    focusTest =
-        focus <|
+    onlyTest : Test
+    onlyTest =
+        only <|
             test "Example passing test" <|
                 \() ->
                     Expect.pass
 
-This will cause the lobo runner to ignore all other tests that don't have focus
-applied. focus can be applied to the following:
-* test
-* describe
-* fuzz, fuzzWith, fuzz2, fuzz3, fuzz4, fuzz5
-
-Focus cannot be used to force a skipped test to run.
+This will cause the lobo runner to ignore all other tests that don't have only
+applied. Only cannot be used to force a skipped test to run.
+For further help see [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
 -}
-focus : Test -> Test
-focus test =
-    Focus test
+only : Test -> Test
+only test =
+    Only test
 
 
 {-| Prevent the running of tests with a reason for them to be skipped.
@@ -117,16 +97,21 @@ focus test =
                 \() ->
                     Expect.fail "Never runs"
 
-This will cause the lobo runner to skip this test. skip can be applied to the
-following:
-* test
-* describe, concat
-* fuzz, fuzzWith, fuzz2, fuzz3, fuzz4, fuzz5
+This will cause the lobo runner to skip this test.
+For further help see [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
 
 -}
 skip : String -> Test -> Test
 skip reason test =
     Skipped reason test
+
+
+{-| A temporary placeholder for a test that always fails.
+For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
+-}
+todo : String -> Test
+todo description =
+    Todo description
 
 
 {-| A test which has yet to be evaluated.
