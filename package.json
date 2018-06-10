@@ -18,8 +18,8 @@
     "rimraf": "^2.5.4"
   },
   "scripts": {
-    "clean": "rimraf node_modules elm-stuff tests/elm-stuff",
-    "build-ci": "elm-make --yes",
-    "build-doc": "elm-make --docs=documentation.json"
+    "clean": "rimraf node_modules elm-stuff",
+    "build-ci": "elm make",
+    "build-doc": "elm make --docs=documentation.json"
   }
 }

@@ -1,4 +1,4 @@
-module ElmTest.Runner exposing (Test(Batch, Labeled, Only, Skipped, Test, Todo))
+module ElmTest.Runner exposing (Test(..))
 
 {-| Declarations required by lobo. Generally only of interest when
 extending lobo.
