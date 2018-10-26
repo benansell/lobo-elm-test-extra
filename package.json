@@ -1,7 +1,7 @@
 {
   "name": "lobo-elm-test-extra",
   "version": "1.0.0",
-  "description": "elm-test extensions for lobo with focus & skip",
+  "description": "elm-test extensions for lobo",
   "keywords": [
     "elm",
     "lobo",
