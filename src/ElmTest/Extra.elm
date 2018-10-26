@@ -12,7 +12,7 @@ module ElmTest.Extra
         , todo
         )
 
-{-| Additions to [elm-test](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
+{-| Additions to [elm-test](http://package.elm-lang.org/packages/elm-explorations/test/latest)
 for use with the [lobo](https://www.npmjs.com/package/lobo) test runner.
 
     skippedTest : Test
@@ -52,7 +52,7 @@ The following elm-test functions are not available in elm-test-extra:
 ## elm-test
 
 lobo compatible declarations of the elm-test Test API. In the first instance
-please see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
+please see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-explorations/test/latest)
 
 @docs Test, only, test, todo
 
@@ -85,7 +85,7 @@ import Test as ElmTest
 
 This will cause the lobo runner to ignore all other tests that don't have only
 applied. Only cannot be used to force a skipped test to run.
-For further help see [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
+For further help see [elm-test documentation](http://package.elm-lang.org/packages/elm-explorations/test/latest)
 
 -}
 only : Test -> Test
@@ -103,7 +103,7 @@ only t =
                     Expect.fail "Never runs"
 
 This will cause the lobo runner to skip this test.
-For further help see [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
+For further help see [elm-test documentation](http://package.elm-lang.org/packages/elm-explorations/test/latest)
 
 -}
 skip : String -> Test -> Test
@@ -112,7 +112,7 @@ skip reason t =
 
 
 {-| A temporary placeholder for a test that always fails.
-For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
+For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-explorations/test/latest)
 -}
 todo : String -> Test
 todo desc =
@@ -120,14 +120,14 @@ todo desc =
 
 
 {-| A test which has yet to be evaluated.
-For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
+For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-explorations/test/latest)
 -}
 type alias Test =
     Runner.Test
 
 
 {-| Group a set of tests with a description.
-For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
+For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-explorations/test/latest)
 -}
 describe : String -> List Test -> Test
 describe desc =
@@ -135,7 +135,7 @@ describe desc =
 
 
 {-| A test that evaluates an expectation.
-For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
+For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-explorations/test/latest)
 -}
 test : String -> (() -> Expectation) -> Test
 test desc thunk =
@@ -143,7 +143,7 @@ test desc thunk =
 
 
 {-| Run a test with random input provided by the fuzzer.
-For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
+For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-explorations/test/latest)
 -}
 fuzz : Fuzz.Fuzzer a -> String -> (a -> Expectation) -> Test
 fuzz fuzzer desc getExpectations =
@@ -151,7 +151,7 @@ fuzz fuzzer desc getExpectations =
 
 
 {-| Run a test with random input provide by a fuzzer using the supplied options.
-For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
+For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-explorations/test/latest)
 -}
 fuzzWith : ElmTest.FuzzOptions -> Fuzz.Fuzzer a -> String -> (a -> Expectation) -> Test
 fuzzWith options fuzzer desc getExpectations =
@@ -159,7 +159,7 @@ fuzzWith options fuzzer desc getExpectations =
 
 
 {-| Run a test with 2 random inputs provided by the fuzzers.
-For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
+For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-explorations/test/latest)
 -}
 fuzz2 :
     Fuzz.Fuzzer a
@@ -172,7 +172,7 @@ fuzz2 fuzzA fuzzB desc getExpectations =
 
 
 {-| Run a test with 3 random inputs provided by the fuzzers.
-For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-community/elm-test/latest)
+For further help see the original [elm-test documentation](http://package.elm-lang.org/packages/elm-explorations/test/latest)
 -}
 fuzz3 :
     Fuzz.Fuzzer a
