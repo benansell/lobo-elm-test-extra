@@ -7,14 +7,10 @@ cache:
 os:
   - linux
 
-env:
-  matrix:
-    - ELM_VERSION=0.18.0 TARGET_NODE_VERSION=node
-
 before_install:
   - node --version
   - npm --version
-  - npm install -g elm@$ELM_VERSION
+  - npm install -g elm
 
 install:
   - npm install
