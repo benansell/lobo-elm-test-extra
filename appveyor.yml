@@ -5,7 +5,7 @@ environment:
   - nodejs_version: "10"
 
 cache:
-  - '%USERPROFILE%\.elm\0.19.0\package'
+  - '%APPDATA%\.elm\0.19.0\package'
 
 platform:
   - x64
