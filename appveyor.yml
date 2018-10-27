@@ -1,20 +1,17 @@
 environment:
   matrix:
-#  - nodejs_version: "6"
+  - nodejs_version: "6"
   - nodejs_version: "8"
-#  - nodejs_version: "10"
+  - nodejs_version: "10"
 
 cache:
-  - '%APPDATA%\.elm\0.19.0\package'
+  - '%APPDATA%\elm\0.19.0\package'
 
 platform:
   - x64
 
 matrix:
   fast_finish: true
-
-init:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 install:
   - ps: Update-NodeJsInstallation (Get-NodeJsLatestBuild $env:nodejs_version) $env:Platform
