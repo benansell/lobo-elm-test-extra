@@ -23,4 +23,3 @@ install:
 build_script:
   - npm run build-ci
 
-build: off
