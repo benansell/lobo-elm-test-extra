@@ -3,7 +3,7 @@
     "name": "benansell/lobo-elm-test-extra",
     "summary": "elm-test extensions for lobo",
     "license": "BSD-3-Clause",
-    "version": "1.0.0",
+    "version": "3.0.0",
     "exposed-modules": [
         "ElmTest.Extra",
         "ElmTest.Runner"
